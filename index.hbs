@@ -1,0 +1,49 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+{{! The main content area on the homepage }}
+<main class="content" role="main">
+<!--     <article class="{{post_class}}">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{tags prefix="on "}}</span>
+            <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            <p>{{excerpt}}&hellip;</p>
+        </section>
+    </article> -->
+    <section id="header-section">
+        <div>
+            <p style="padding:2px 2px; text-align: center;"></p>
+        </div>
+    </section>
+    <section id="portfolio" style="min-height:480px;">
+        <div class="container masonry-wrapper scrollimation fade-in">
+            <div id="projects-container">
+                {{! Each post will be output using this markup }}
+                {{#foreach posts}}
+                <a class="project-item web-design" href="{{url}}">
+                    <div class="post"> 
+                        {{content words="0"}}
+                        <h1>{{title}}</h1>  
+                        <p class="post-resume">{{excerpt}}&hellip;<br /></p>
+                        <p class="post-resume">ler mais [&hellip;]</p>
+                        <hr style="border-style:dotted;" />
+                        {{#foreach tags}}
+                        <span>{{name}}</span>
+                        {{/foreach}}
+                    </div>
+                </a>
+                {{/foreach}}
+                {{!! After all the posts, we have the previous/next pagination links }}
+                {{pagination}}
+            </div><!-- End projects -->
+        </div><!-- End container -->
+    </section><!-- End portfolio section -->
+
+
+</main>

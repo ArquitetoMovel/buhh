@@ -1,0 +1,50 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+<!--<header class="site-head" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+    <div class="vertical">
+        <div class="site-head-content inner">
+            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+            <h1 class="blog-title">{{@blog.title}}</h1>
+            <h2 class="blog-description">{{@blog.description}}</h2>
+        </div>
+    </div>
+</header>-->
+{{! The main content area on the homepage }}
+<main class="content" role="main">
+    <section id="header-section">
+        <div>
+            <p style="padding:2px 2px; text-align: center;">{{tag.name}}</p>
+        </div>
+    </section>
+    <section id="portfolio" style="min-height:480px;">
+        <div class="container masonry-wrapper scrollimation fade-in">
+            <div id="projects-container">
+                {{! Each post will be output using this markup }}
+                {{#foreach posts}}
+                <a class="project-item web-design" href="{{url}}">
+                    <!--<img src="~/Content/vNet.png" alt="" />-->
+                    <div class="post">
+                        <h1>{{title}}</h1>
+                        {{#foreach tags}}
+                        <span>{{name}}</span>
+                        {{/foreach}}
+                        <p>{{excerpt}}&hellip;</p>
+                    </div>
+                </a>
+                {{/foreach}}
+                {{!! After all the posts, we have the previous/next pagination links }}
+                {{pagination}}
+            </div><!-- End projects -->
+            <!-- <div class="col-md-11">
+                       <a style="font-size: 34px;">
+                           <span><i class="glyphicon icon-circle-arrow-left"></i></span>
+                       </a>
+                   </div>
+            -->
+        </div><!-- End container -->
+    </section><!-- End portfolio section -->
+</main>
