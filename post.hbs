@@ -26,7 +26,13 @@
             <h1 class="post-title">{{{title}}}</h1>
             <span>Em 
                 <strong><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time></strong>
-                Por <strong>{{author.name}}</strong>   
+                Por:  
+                {{#if image}}
+                    <figure class="author-image">
+                        <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                    </figure>
+                {{/if}
+                <strong>{{author.name}}</strong>   
             </span>
             <br />
             {{content}}
